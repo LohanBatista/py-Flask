@@ -93,7 +93,7 @@ def get_products_list():
             "price": product.price,
             "description": product.description
             }
-            products_list.applicationend(product_data)
+            products_list.append(product_data)
         return jsonify(products_list)
     return jsonify(products_list)
 
@@ -162,7 +162,7 @@ def get_cart():
     cart = []
     for cart_item in cart_items:
         product = Product.query.get(cart_item.product_id)
-        cart.applicationend({
+        cart.append({
             "id": cart_item.id,
             "user_id": user.id,
             "product_id": cart_item.id,
